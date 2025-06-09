@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TableStatusGateway = void 0;
 const websockets_1 = require("@nestjs/websockets");
 const socket_io_1 = require("socket.io");
+const dotenv = require("dotenv");
+dotenv.config();
 let TableStatusGateway = class TableStatusGateway {
     server;
     sendTableStatusUpdate(statusUpdate) {
@@ -26,7 +28,7 @@ __decorate([
 exports.TableStatusGateway = TableStatusGateway = __decorate([
     (0, websockets_1.WebSocketGateway)({
         cors: {
-            origin: 'http://localhost:5173',
+            origin: process.env.FRONTEND_URL,
             methods: ['GET', 'POST'],
             credentials: true,
         },

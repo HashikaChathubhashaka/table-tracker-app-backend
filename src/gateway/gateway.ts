@@ -25,4 +25,3 @@ export class MyGateway implements OnModuleInit {
     }
 
 }
-
